@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function BookList() {
   return (
-    <section>
+    <section className='booklist'>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
       <Book />
     </section>
   );
@@ -11,7 +17,7 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
+    <article className='book'>
       <Image />
       <Title />
       <Author />
@@ -30,6 +36,10 @@ const Title = () => (
   <h1>The Four Agreements: A Practical Guide to Personal Freedom</h1>
 );
 
-const Author = () => <h4>Don Miguel Ruiz</h4>;
+const Author = () => (
+  <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.25rem' }}>
+    Don Miguel Ruiz
+  </h4>
+);
 
 ReactDOM.render(<BookList />, document.getElementById('root'));
