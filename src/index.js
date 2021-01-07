@@ -2,44 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const bookOne = {
+  title: 'The Four Agreements: A Practical Guide to Personal Freedom',
+  author: 'Don Miguel Ruiz',
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/91p5b0UgbKL._AC_UL200_SR200,200_.jpg',
+};
+
 function BookList() {
   return (
     <section className='booklist'>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book img={bookOne.img} title={bookOne.title} author={bookOne.author} />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
   return (
     <article className='book'>
-      <Image />
-      <Title />
-      <Author />
+      <img src={props.img} alt='' />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src='https://images-na.ssl-images-amazon.com/images/I/91p5b0UgbKL._AC_UL200_SR200,200_.jpg'
-    alt=''
-  />
-);
-
-const Title = () => (
-  <h1>The Four Agreements: A Practical Guide to Personal Freedom</h1>
-);
-
-const Author = () => (
-  <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-    Don Miguel Ruiz
-  </h4>
-);
 
 ReactDOM.render(<BookList />, document.getElementById('root'));
